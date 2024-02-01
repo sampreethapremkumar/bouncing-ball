@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bouncing Ball at Center of Cube</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            perspective: 600px;
+            background-image: url('3d.avif');
+            background-size: cover;
+        }
+
+        .scene {
+            transform-style: preserve-3d;
+        }
+
+        .cube {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            transform-style: preserve-3d;
+            animation: rotateCube 5s linear infinite;
+        }
+
+        .face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(224, 240, 224, 0.8);
+            border: 2px solid #070707;
+        }
+
+        .ball {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: rgba(82, 81, 81, 0.8);
+            border-radius: 50%;
+            animation: bounceBall 2s linear infinite;
+        }
+
+       
+        
+
+        @keyframes bounceBall {
+            0%, 100% { transform: translate3d(0, 0, 0); }
+            50% { transform: translate3d(0, 40px, 0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="scene">
+        <div class="cube">
+            <div class="face"></div>
+            <div class="face" style="transform: rotateY(90deg) translateZ(50px);">
+                <div class="ball"></div>
+            </div>
+            <div class="face" style="transform: rotateY(180deg) translateZ(50px);"></div>
+            <div class="face" style="transform: rotateY(-90deg) translateZ(50px);"></div>
+            <div class="face" style="transform: rotateX(90deg) translateZ(50px);"></div>
+            <div class="face" style="transform: rotateX(-90deg) translateZ(50px);"></div>
+        </div>
+    </div>
+</body>
+</html>
